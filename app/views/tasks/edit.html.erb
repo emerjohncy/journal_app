@@ -1,0 +1,5 @@
+<%= render "form", category: @category, task: @task, method: "Update" %>
+<br>
+<br>
+<br>
+<%= link_to 'Back to ' + @task.name + ' Task', category_task_path(@category.id, @task.id) %>
