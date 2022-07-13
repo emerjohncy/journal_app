@@ -1,31 +1,18 @@
 class CategoriesController < ApplicationController
     def index
-        @categories = Category.all
+        @tasks_today = Task.where(deadline: Date.current.beginning_of_day..Date.current.end_of_day)
     end
-
+    
     def new
+        @tasks_today = Task.where(deadline: Date.current.beginning_of_day..Date.current.end_of_day)
         @category = Category.new
     end
 
     def create
         @category = Category.new(category_params)
         
-        # respond_to do |format|
-        #     if @article.save
-        #         format.html { redirect_to categories_path. notice: "Entry was successfully created." }
-        #     else
-        #         format.html { render :new, status: :unprocessablee_entity}
-        #     end
-        # end
-        
-        # if @category.save
-        #     render json: @category.to_json
-        # else
-        #     redirect_to :new
-        # end
-        
         if @category.save
-            redirect_to categories_path
+            redirect_to @category
         else
             render :new, status: :unprocessable_entity
         end
@@ -45,18 +32,15 @@ class CategoriesController < ApplicationController
         if @category.update(category_params)
             redirect_to categories_path
         else
-            render :new, status: :unprocessable_entity
+            render :edit, status: :unprocessable_entity
         end
     end
 
-    # def destroy
-    #     @category = Category.find(params["id"])
-
-    #     if @category.destroy
-    #         redirect_to categories_path
-    #     else
-    #     end
-    # end
+    def destroy
+        @category = Category.find(params["id"])
+        @category.destroy
+        redirect_to categories_path, status: :see_other
+    end
 
     private
 

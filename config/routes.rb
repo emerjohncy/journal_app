@@ -20,11 +20,11 @@ Rails.application.routes.draw do
   get '/categories/:id/edit' => 'categories#edit',
     as: 'edit_category'
 
-  patch '/categories/:id' => 'categories#update',
-    as: 'update_category'
+  put '/categories/:id' => 'categories#update'
+
+  patch '/categories/:id' => 'categories#update'
     
-  delete '/categories/:id' => 'categories#destroy',
-    as: 'delete_category'
+  delete '/categories/:id' => 'categories#destroy'
 
 
   # Tasks Routes
@@ -43,6 +43,9 @@ Rails.application.routes.draw do
   get '/categories/:category_id/tasks/:id/edit' => 'tasks#edit',
     as: 'edit_category_task'
   
-  patch '/categories/:category_id/tasks/:id' => 'tasks#update',
-    as: 'update_category_task'
+  put '/categories/:category_id/tasks/:id' => 'tasks#update'
+
+  patch '/categories/:category_id/tasks/:id' => 'tasks#update'
+
+  delete '/categories/:category_id/tasks/:id' => 'tasks#destroy'
 end

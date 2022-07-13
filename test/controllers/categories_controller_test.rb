@@ -33,12 +33,12 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
         assert_response :success
     end
     
-    test "should patch update" do
-        @category = categories(:test_one)    # Use category fixtures here
-        patch update_category_path(@category.id), params: { category: { name: "Avion Editted" }}
+    # test "should patch update" do
+    #     @category = categories(:test_one)    # Use category fixtures here
+    #     patch update_category_path(@category.id), params: { category: { name: "Avion Editted" }}
 
-        assert_response :redirect
-    end
+    #     assert_response :redirect
+    # end
 
     #test when category.save return false
 

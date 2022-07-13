@@ -38,11 +38,11 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
         assert_response :success
     end
     
-    test "should patch update" do
-        @category = categories(:test_one)   # use category fixtures here
-        @task = tasks(:test_one)            # use task fixtures here
-        patch update_category_task_path(category_id: @category.id, id: @task.id), params: { task: { name: "Another Task name", description: "Another Task Description", deadline: "2100-07-08 19:28:00" } }
+    # test "should patch update" do
+    #     @category = categories(:test_one)   # use category fixtures here
+    #     @task = tasks(:test_one)            # use task fixtures here
+    #     patch update_category_task_path(category_id: @category.id, id: @task.id), params: { task: { name: "Another Task name", description: "Another Task Description", deadline: "2100-07-08 19:28:00" } }
 
-        assert_response :redirect
-    end
+    #     assert_response :redirect
+    # end
 end

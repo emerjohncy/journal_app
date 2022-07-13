@@ -1,6 +1,11 @@
-<%= link_to 'Add New Category', new_category_path %>
+<div class="container-fluid">
+    <div class="col vh-100 div-content">
 
-<% @categories.each do |category| %>
-    <%= render "category", category: category %>
-    <%#= link_to 'Delete', delete_category_path(category), method: :delete %>
-<% end %>
+        <p>Today</p>
+        <p>You have <%= @tasks_today.count %> tasks due today!</p>
+        
+        <% @tasks_today.each do |task_today| %>
+            <%= render "task_today", task_today: task_today %>
+        <% end %>
+    </div>
+</div>
