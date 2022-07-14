@@ -1,7 +1,26 @@
-<%= link_to 'Add New Task', new_category_task_path %>
+<%#= link_to 'Add New Task', new_category_task_path %>
 
-<% @tasks.each do |task| %>
-    <%= render "task", category: @category, task: task %>
-<% end %>
+<%# @tasks.each do |task| %>
+    <%#= render "task", category: @category, task: task %>
+<%# end %>
 
-<%= link_to 'Back to ' + @category.name, category_path(@category.id) %>
+
+<div class="container-fluid vh-100 div-content">
+    <%= link_to category_path(@category.id), class: "cat-title" do %>
+        <div class="title">
+            <%= @category.name %>
+        </div>
+    <% end %>
+
+    <div class>
+        <% @tasks.each do |task| %>
+            <%= render "task", category: @category, task: task %>
+        <% end %>
+    </div>
+    
+    <%= link_to new_category_task_path, class: "add-task-link fs-3" do %>
+        <div class="div-add-task">
+            Add New Task
+        </div>
+    <% end %>
+</div>

@@ -1,5 +1,7 @@
 <%= form_with model: category, local: true, class: "form-category" do |f| %>
-    <%= f.text_field :name %>
+    <div class="form-category-container">
+        <%= f.text_field :name, class: "form-category-name" %>
 
-    <%= f.submit method %>
+        <%= f.submit method + " Category", class: "form-category-submit" %>
+    </div>
 <% end %>
