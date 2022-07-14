@@ -1,5 +1,90 @@
 @import "bootstrap";
 
+.sidebar {
+    background-color: #FF8C32;
+}
+
 .div-content {
-    background-color: $gray-200;
+    background: linear-gradient(to bottom right, #06113c 0%, #000000 123%);
+    width: 85%;
+}
+
+.logo {
+    width: 15vw;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #eeeeee;
+    padding-left: 5px !important;
+}
+
+.nav-link:hover {
+    color: #06113C;
+}
+
+.active {
+    color: #06113C;
+    // background-color: #928EB9;
+}
+
+.header {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    color: #6610f2;
+}
+
+.title {
+    padding-top: 100px;
+    font-size: 2rem;
+    color: #DDDDDD;
+    font-weight: 800;
+}
+
+.div-add-category {
+    padding: 13px 15px 13px 15px;
+    margin: 13px 30px 13px 30px;
+    width: 90%;
+    border-radius: 10px;
+    border: 1px solid #DDDDDD;
+    text-align: center;
+}
+
+.div-add-category:hover {
+    border-color: #fd7e14;
+}
+
+.add-cat-link {
+    text-decoration: none;
+    color: #DDDDDD;
+}
+
+.add-cat-link:hover {
+    color: #fd7e14;
+}
+
+.div-category {
+    background-color: #fff;
+    padding: 13px 15px 13px 15px;
+    margin: 13px 30px 13px 30px;
+    width: 90%;
+    border-radius: 10px;
+}
+
+.cat-link {
+    text-decoration: none;
+    color: #06113C;
+}
+
+.div-category:hover,
+.cat-link:hover {
+    background-color: #fd7e14;
+    color: #fff;
+}
+
+.form-category {
+    
 }

@@ -1,11 +1,32 @@
-<div class="container-fluid">
-    <div class="col vh-100 div-content">
+<div class="container-fluid vh-100 div-content">
 
-        <p>Today</p>
-        <p>You have <%= @tasks_today.count %> tasks due today!</p>
-        
-        <% @tasks_today.each do |task_today| %>
-            <%= render "task_today", task_today: task_today %>
+    <%# Header %>
+    <%# <div class="header">
+        <p class="fw-bold fs-1">Home</p>
+    </div> %>
+
+    <%# List of Categories Div %>
+    <div class="title">Category</div>
+    <div class>
+        <% @categories.each do |category| %>
+            <%= render "category", category: category %>
         <% end %>
     </div>
+
+    <%# Add a Category Div %>
+    <%= link_to new_category_path, class: "add-cat-link fs-3" do %>
+        <div class="div-add-category">
+            Add New Category
+        </div>
+    <% end %>
+        
 </div>
+
+
+
+<%# <p>Today</p> %>
+<%# <p>You have <%= @tasks_today.count tasks due today!</p> %>
+
+<%# @tasks_today.each do |task_today| %>
+    <%#= render "task_today", task_today: task_today %>
+<%# end %>

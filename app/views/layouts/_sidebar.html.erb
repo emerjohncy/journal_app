@@ -1,31 +1,36 @@
 <nav class="nav d-flex flex-column align-self-stretch">
-    <p>
-        Task Manager
-    </p>
+    
+    <div class="d-flex justify-content-center">
+        <%= image_tag "logo.png", class: "logo" %>
+    </div>
+
     <div class="d-grid">
-        <%= link_to "Home", categories_path %>
-        <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <%= link_to "Home", root_path, class: "nav-link active fw-bold fs-3 px-3 py-2" %>
+        <%= link_to "Today", root_path, class: "nav-link fw-bold fs-3 px-3 py-2" %>
+        <%= link_to "Overdue", root_path, class: "nav-link fw-bold fs-3 px-3 py-2" %>
+        
+        <%# <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             Categories
-        </a>
+        </a> %>
     </div>
 
-        <div class="collapse" id="collapseExample">
-            <div>
-                <% @categories.each do |category| %>
-                    <%= render "categories/category", category: category %>
-                <% end %>
-            </div>
-        </div>
+        <%# <div class="collapse" id="collapseExample"> %>
+            <%# <div> %>
+                <%# @categories.each do |category| %>
+                    <%#= render "categories/category", category: category %>
+                <%# end %>
+            <%# </div> %>
+        <%# </div> %>
 
-        <% if current_page?(controller: 'categories', action: 'new') %>
-            <%= form_with model: @category, local: true do |f| %>
-                <%= f.text_field :name %>
+        <%# if current_page?(controller: 'categories', action: 'new') %>
+            <%#= form_with model: @category, local: true do |f| %>
+                <%#= f.text_field :name %>
 
-                <%= f.submit "Add" %>
-            <% end %>
-        <% end %>
+                <%#= f.submit "Add" %>
+            <%# end %>
+        <%# end %>
 
-    <div>
-        <%= link_to 'Add New Category', new_category_path %>
-    </div>
+    <%# <div> %>
+        <%#= link_to 'Add New Category', new_category_path %>
+    <%# </div> %>
 <nav>

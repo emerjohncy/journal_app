@@ -1,10 +1,11 @@
 class CategoriesController < ApplicationController
     def index
-        @tasks_today = Task.where(deadline: Date.current.beginning_of_day..Date.current.end_of_day)
+        @categories = Category.all
+        # @tasks_today = Task.where(deadline: Date.current.beginning_of_day..Date.current.end_of_day)
     end
     
     def new
-        @tasks_today = Task.where(deadline: Date.current.beginning_of_day..Date.current.end_of_day)
+        # @tasks_today = Task.where(deadline: Date.current.beginning_of_day..Date.current.end_of_day)
         @category = Category.new
     end
 
@@ -12,7 +13,7 @@ class CategoriesController < ApplicationController
         @category = Category.new(category_params)
         
         if @category.save
-            redirect_to @category
+            redirect_to categories_path
         else
             render :new, status: :unprocessable_entity
         end

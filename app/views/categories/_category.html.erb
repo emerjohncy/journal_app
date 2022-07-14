@@ -1,2 +1,7 @@
-<h1><%= link_to category.name, category_path(category) %></h1>
+
+<%= link_to category_path(category.id), class: "cat-link fs-4" do %>
+    <div class="div-category">
+        <%= category.name %>
+    </div>
+<% end %>
 
