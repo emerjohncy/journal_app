@@ -1,14 +1,20 @@
 <div class="container-fluid vh-100 div-content">
-    <div class="title">
+    <div class="title show-cat">
         <%= @category.name %>
+        <div>
+            <%= link_to 'Edit', edit_category_path(@category.id), class: "btn btn-outline-success" %>
+            <%= link_to 'Delete', category_path(@category), class: "btn btn-outline-danger", data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
     </div>
 
-    <%= link_to 'Edit', edit_category_path(@category.id) %>
-    <%= link_to 'Delete', category_path(@category), data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" } %>
     
     <%= link_to category_tasks_path(@category.id), class: "add-cat-link fs-3" do %>
         <div class="div-add-category">
-            Show Tasks
+            <% if @category.tasks.count <= 1 %>
+                Show <%= @category.tasks.count %> Task
+            <% else %>
+                Show <%= @category.tasks.count %> Tasks
+            <% end %>
         </div>
     <% end %>
 </div>

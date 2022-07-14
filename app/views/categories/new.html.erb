@@ -6,8 +6,10 @@
     </div> %>
 
     <%# List of Categories Div %>
-    <div class="title">Category</div>
-    <div class>
+    <div class="title">
+        Category (<%= @categories.count %>)
+    </div>
+    <div class="main-content">
         <% @categories.each do |category| %>
             <%= render "category", category: category %>
         <% end %>

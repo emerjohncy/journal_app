@@ -1,5 +1,16 @@
-<%= render "form", category: @category, method: "Edit" %>
-<br>
-<br>
-<br>
-<%= link_to 'Back to ' + @category.name, category_path(@category.id) %>
+<div class="container-fluid vh-100 div-content">
+    <div class="title show-cat">
+        <%#= link_to 'Back', category_path(@category.id), class: "btn btn-outline-secondary" %>
+        <%= render "form", category: @category, method: "Edit" %>
+    </div>
+
+    <%= link_to category_tasks_path(@category.id), class: "add-cat-link fs-3" do %>
+        <div class="div-add-category">
+            <% if @category.tasks.count <= 1 %>
+                Show <%= @category.tasks.count %> Task
+            <% else %>
+                Show <%= @category.tasks.count %> Tasks
+            <% end %>
+        </div>
+    <% end %>
+</div>

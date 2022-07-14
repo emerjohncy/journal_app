@@ -7,12 +7,16 @@
 
 <div class="container-fluid vh-100 div-content">
     <%= link_to category_path(@category.id), class: "cat-title" do %>
-        <div class="title">
-            <%= @category.name %>
+        <div class="title show-cat">
+            <%= @category.name %> (<%= @category.tasks.count %>)
+            <div>
+                <%= link_to 'Edit', edit_category_path(@category.id), class: "btn btn-outline-success" %>
+                <%= link_to 'Delete', category_path(@category), class: "btn btn-outline-danger", data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" } %>
+            </div>
         </div>
     <% end %>
 
-    <div class>
+    <div class="main-content">
         <% @tasks.each do |task| %>
             <%= render "task", category: @category, task: task %>
         <% end %>

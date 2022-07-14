@@ -1,7 +1,20 @@
 <%= form_with model: category, local: true, class: "form-category" do |f| %>
     <div class="form-category-container">
-        <%= f.text_field :name, class: "form-category-name" %>
-
-        <%= f.submit method + " Category", class: "form-category-submit" %>
+        <% if current_page?(new_category_path) %>
+            <%= f.text_field :name, class: "form-category-name" %>
+            <%= f.submit method + " Category", class: "form-category-submit" %>
+        <% else %>
+            <div class="input-group">
+                <%= f.text_field :name, class: "input-cat-name" %>
+                <%= f.submit method + " Category", class: "btn btn-outline-success" %>
+                <%= link_to 'Cancel', category_path(@category.id), class: "btn btn-outline-secondary cancel" %>
+            </div>
+        <% end %>
     </div>
 <% end %>
+
+<%# <div class="input-group">
+  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username with two button addons">
+  <button class="btn btn-outline-secondary" type="button">Button</button>
+  <button class="btn btn-outline-secondary" type="button">Button</button>
+</div> %>

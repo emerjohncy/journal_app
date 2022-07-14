@@ -9,6 +9,11 @@
     width: 85%;
 }
 
+.main-content {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
 .logo {
     width: 15vw;
     padding-top: 30px;
@@ -27,7 +32,6 @@
 
 .active {
     color: #06113C;
-    // background-color: #928EB9;
 }
 
 .title {
@@ -40,8 +44,8 @@
 .div-add-category,
 .div-add-task {
     padding: 13px 15px 13px 15px;
-    margin: 13px 30px 13px 30px;
-    width: 90%;
+    margin: 13px 0px 13px 0px;
+    // width: 90%;
     border-radius: 10px;
     border: 1px solid #DDDDDD;
     text-align: center;
@@ -67,8 +71,8 @@
 .div-task {
     background-color: #fff;
     padding: 13px 15px 13px 15px;
-    margin: 13px 30px 13px 30px;
-    width: 90%;
+    margin: 13px 0px 13px 0px;
+    // width: 90%;
     border-radius: 10px;
 }
 
@@ -79,7 +83,9 @@
 }
 
 .div-category:hover,
-.cat-link:hover {
+.cat-link:hover,
+.div-task:hover,
+.task-link:hover {
     background-color: #fd7e14;
     color: #fff;
 }
@@ -89,13 +95,15 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    padding: 13px 0px 13px 0px;
+    // margin: 13px 0px 13px 0px;
 }
 
 .form-category-name {
     padding: 13px 15px 13px 15px;
-    margin: 13px 30px 13px 30px;
-    width: 75%;
+    width: 100%;
     border-radius: 10px;
+    font-size: large;
 }
 
 .form-category-submit {
@@ -108,4 +116,28 @@
 
 .cat-title {
     text-decoration: none;
+    color: #eeeeee;
+}
+
+.cat-title:hover {
+    color: #fd7e14;
+}
+
+.show-cat {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    // padding-right:
+}
+
+.input-cat-name {
+    padding: 13px 15px 13px 15px;
+    width: 54vw;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.cancel {
+    line-height: 3;
 }
