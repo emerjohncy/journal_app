@@ -41,11 +41,32 @@
     font-weight: 800;
 }
 
+.div-category,
+.div-task {
+    background-color: #fff;
+    padding: 13px 15px 13px 15px;
+    margin: 13px 0px 13px 0px;
+    border-radius: 10px;
+}
+
+.cat-link,
+.task-link {
+    text-decoration: none;
+    color: #06113C;
+}
+
+.div-category:hover,
+.cat-link:hover,
+.div-task:hover,
+.task-link:hover {
+    background-color: #fd7e14;
+    color: #fff;
+}
+
 .div-add-category,
 .div-add-task {
     padding: 13px 15px 13px 15px;
     margin: 13px 0px 13px 0px;
-    // width: 90%;
     border-radius: 10px;
     border: 1px solid #DDDDDD;
     text-align: center;
@@ -65,29 +86,6 @@
 .add-cat-link:hover,
 .add-task-link:hover {
     color: #fd7e14;
-}
-
-.div-category,
-.div-task {
-    background-color: #fff;
-    padding: 13px 15px 13px 15px;
-    margin: 13px 0px 13px 0px;
-    // width: 90%;
-    border-radius: 10px;
-}
-
-.cat-link,
-.task-link {
-    text-decoration: none;
-    color: #06113C;
-}
-
-.div-category:hover,
-.cat-link:hover,
-.div-task:hover,
-.task-link:hover {
-    background-color: #fd7e14;
-    color: #fff;
 }
 
 .form-category-container {
@@ -114,21 +112,23 @@
     height: 80%;
 }
 
-.cat-title {
+.cat-title, .task-title {
     text-decoration: none;
     color: #eeeeee;
 }
 
-.cat-title:hover {
+.cat-title:hover,
+.task-title:hover,
+.task-column {
     color: #fd7e14;
 }
 
-.show-cat {
+.show-cat,
+.show-task {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    // padding-right:
 }
 
 .input-cat-name {
@@ -139,5 +139,11 @@
 }
 
 .cancel {
-    line-height: 3;
+    line-height: 2.5;
+}
+
+.task-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 13px 15px 13px 15px;
 }

@@ -1,7 +1,21 @@
-<h1><%= @task.name %></h1>
-<h3><%= @task.description %></h3>
-<h3><%= @task.deadline %></h3>
+<div class="container-fluid vh-100 div-content">
+    <div class="title show-task">
+        <%= link_to @task.name, category_tasks_path(@category.id), class: "task-title fs-1" %>
+        <div>
+            <%= link_to 'Edit', edit_category_task_path(@category.id, @task.id), class: "btn btn-outline-success" %>
+            <%= link_to 'Delete', [@task.category, @task], class: "btn btn-outline-danger", data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+    </div>
 
-<%= link_to 'Edit', edit_category_task_path(@category.id, @task.id) %>
-<%= link_to 'Delete', [@task.category, @task], data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" } %>
-<%= link_to 'Back to Tasks', category_tasks_path(@category.id) %>
+    <div class="main-content">
+        <div class="task-column fs-1">Description: </div>
+        <div class="task-content fs-2">
+            <%= @task.description %>
+        </div>
+
+        <div class="task-column fs-1 pt-3">Deadline: </div>
+        <div class="task-content fs-2">
+            <%= @task.deadline %></h3>
+        </div>
+    </div>
+</div>

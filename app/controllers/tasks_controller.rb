@@ -31,7 +31,7 @@ class TasksController < ApplicationController
         @task = @category.tasks.find(params[:id])
 
         if @task.update(task_params)
-            redirect_to category_tasks_path
+            redirect_to category_task_path
         else
             render :edit, status: :unprocessable_entity
         end
