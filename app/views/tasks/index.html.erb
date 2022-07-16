@@ -1,15 +1,8 @@
-<%#= link_to 'Add New Task', new_category_task_path %>
-
-<%# @tasks.each do |task| %>
-    <%#= render "task", category: @category, task: task %>
-<%# end %>
-
-
 <div class="container-fluid vh-100 div-content">
     <%= link_to category_path(@category.id), class: "cat-title" do %>
         <div class="title show-cat">
             <%= @category.name %> (<%= @category.tasks.count %>)
-            <div>
+            <div class="d-flex align-item-center">
                 <%= link_to 'Edit', edit_category_path(@category.id), class: "btn btn-outline-success" %>
                 <%= link_to 'Delete', category_path(@category), class: "btn btn-outline-danger", data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" } %>
             </div>

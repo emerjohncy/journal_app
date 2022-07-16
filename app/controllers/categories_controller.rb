@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
     
     def new
         # @tasks_today = Task.where(deadline: Date.current.beginning_of_day..Date.current.end_of_day)
+        @categories = Category.all
         @category = Category.new
     end
 

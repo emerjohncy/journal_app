@@ -1,5 +1,7 @@
-<%= render "form", category: @category, task: @task, method: "Update" %>
-<br>
-<br>
-<br>
-<%= link_to 'Back to ' + @task.name + ' Task', category_task_path(@category.id, @task.id) %>
+<div class="container-fluid vh-100 div-content">
+    <div class="title d-flex justify-content-between">
+        Edit Task
+        <%= link_to "Cancel", category_task_path(@category.id), class: "btn btn-outline-secondary cancel" %>
+    </div>
+    <%= render "form", category: @category, task: @task, method: "Update" %>
+</div>

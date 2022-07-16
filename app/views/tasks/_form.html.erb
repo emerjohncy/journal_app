@@ -1,9 +1,5 @@
 
 
-<div class="container-fluid vh-100 div-content">
-    <div class="title">
-        <%= method + " Task" %>
-    </div>
 
     <%= form_with model: [category, task], local: true do |f| %>
         <div class="input-group mb-3">
@@ -11,24 +7,29 @@
             <%= f.text_field :name, class: "form-control", placeholder: "Enter Task Name" %>
         </div>
 
+        <% task.errors.full_messages_for(:name).each do |message| %>
+            <div class="error"><%= message %></div>
+        <% end %>
+
         <div class="input-group mb-3">
             <%= f.label :description, class: "input-group-text" %>
             <%= f.text_area :description, class: "form-control", placeholder: "Enter Task Description" %>
         </div>
+
+        <% task.errors.full_messages_for(:description).each do |message| %>
+            <div class="error"><%= message %></div>
+        <% end %>
 
         <div class="input-group mb-3">
             <%= f.label :deadline, class: "input-group-text" %>
             <%= f.datetime_field :deadline, class: "form-control" %>
         </div>
 
+        <% task.errors.full_messages_for(:deadline).each do |message| %>
+            <div class="error"><%= message %></div>
+        <% end %>
+
         <div class="input-group mb-3">
             <%= f.submit method + " Task", class: "form-category-submit" %>
-            <% if current_page?(action: "new") %>
-                <%= link_to "Cancel", category_tasks_path(category.id), class: "btn btn-outline-secondary cancel" %>
-            <% else %>
-                <%= link_to "Cancel", category_task_path(category.id), class: "btn btn-outline-secondary cancel" %>
-            <% end %>
         </div>
     <% end %>
-
-</div>

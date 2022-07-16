@@ -1,21 +1,22 @@
 <div class="container-fluid vh-100 div-content">
 
-    <%# Header %>
-    <%# <div class="header">
-        <p class="fw-bold fs-1">Home</p>
-    </div> %>
-
     <%# List of Categories Div %>
     <div class="title">
         Category (<%= @categories.count %>)
     </div>
-    <div class="main-content">
+    <div class="main-content col">
         <% @categories.each do |category| %>
             <%= render "category", category: category %>
         <% end %>
     </div>
 
     <%# Add a Category Div %>
-    <%= render "form", category: @category, method: "Add" %>
-        
+    <div class="col">
+        <%= render "form", category: @category, method: "Add" %>
+    </div>
+
+    <% @category.errors.full_messages_for(:name).each do |message| %>
+        <div class="error"><%= message %></div>
+    <% end %>
+
 </div>

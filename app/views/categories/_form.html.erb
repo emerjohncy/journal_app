@@ -1,14 +1,8 @@
-<%= form_with model: category, local: true, class: "form-category" do |f| %>
+<%= form_with model: category, class: "form-category" do |f| %>
     <div class="form-category-container">
-        <% if current_page?(new_category_path) %>
-            <%= f.text_field :name, class: "form-category-name" %>
-            <%= f.submit method + " Category", class: "form-category-submit" %>
-        <% else %>
             <div class="input-group">
-                <%= f.text_field :name, class: "input-cat-name" %>
-                <%= f.submit method + " Category", class: "btn btn-outline-success" %>
-                <%= link_to 'Cancel', category_path(@category.id), class: "btn btn-outline-secondary cancel" %>
+                <%= f.text_field :name, class: "input-cat-name col-7" %>
+                <%= f.submit method + " Category", class: "btn btn-outline-success col" %>
             </div>
-        <% end %>
     </div>
 <% end %>
