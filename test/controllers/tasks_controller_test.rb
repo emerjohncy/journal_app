@@ -22,6 +22,13 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
         assert_response :redirect
     end
 
+    test "when create task failed" do
+        @category = categories(:test_one)   # use category fixtures here
+        post create_category_task_path(category_id: @category.id), params: { task: { name: nil, description: "Task Description", deadline: "2100-07-08 19:28:00" } }
+
+        assert_response :unprocessable_entity
+    end
+
     test "should get show" do
         @category = categories(:test_one)   # use category fixtures here
         @task = tasks(:test_one)            # use task fixtures here
@@ -38,11 +45,27 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
         assert_response :success
     end
     
-    # test "should patch update" do
-    #     @category = categories(:test_one)   # use category fixtures here
-    #     @task = tasks(:test_one)            # use task fixtures here
-    #     patch update_category_task_path(category_id: @category.id, id: @task.id), params: { task: { name: "Another Task name", description: "Another Task Description", deadline: "2100-07-08 19:28:00" } }
+    test "should patch update" do
+        @category = categories(:test_one)   # use category fixtures here
+        @task = tasks(:test_one)            # use task fixtures here
+        patch category_task_path(category_id: @category.id, id: @task.id), params: { task: { name: "Another Task name", description: "Another Task Description", deadline: "2100-07-08 19:28:00" } }
+        
+        assert_response :redirect
+    end
+    
+    test "when update failed" do
+        @category = categories(:test_one)   # use category fixtures here
+        @task = tasks(:test_one)            # use task fixtures here
+        patch category_task_path(category_id: @category.id, id: @task.id), params: { task: { name: "Another Task Name", description: "Another Task Description", deadline: "2100-07-08 19:28:00" } }
+        
+        assert_response :unprocessable_entity
+    end
+    
+    test "should delete task" do
+        @category = categories(:test_one)   # use category fixtures here
+        @task = tasks(:test_one)            # use task fixtures here
+        delete category_task_path(category_id: @category.id, id: @task.id)
 
-    #     assert_response :redirect
-    # end
+        assert_response :redirect
+    end
 end

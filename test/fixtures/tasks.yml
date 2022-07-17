@@ -6,8 +6,8 @@ test_one:
   deadline: 2022-07-08 19:28:00
   category_id: 1
 
-two:
-  name: MyString
+test_two:
+  name: Another Task Name
   description: MyText
   deadline: 2022-07-08 19:28:00
-  category_id: 1
+  category_id: 2

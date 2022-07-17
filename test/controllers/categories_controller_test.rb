@@ -19,6 +19,12 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
         assert_response :redirect
     end
 
+    test "when create category failed" do
+        post create_category_path, params: { category: { name: nil } }
+
+        assert_response :unprocessable_entity
+    end
+
     test "should get show" do
         @category = categories(:test_one)    # Use category fixtures here
         get category_path(@category.id)
@@ -35,9 +41,16 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     
     test "should patch update" do
         @category = categories(:test_one)    # Use category fixtures here
-        patch category_path(@category.id), params: { category: { name: "Avion Editted" }}
+        patch category_path(@category.id), params: { category: { name: "Avion Editted" } }
 
         assert_response :redirect
+    end
+
+    test "when update category failed" do
+        @category = categories(:test_two)    # Use category fixtures here
+        patch category_path(@category.id), params: { category: { name: "Business" } }
+        
+        assert_response :unprocessable_entity
     end
 
     test "should delete destroy" do
@@ -46,10 +59,4 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
         assert_response :redirect
     end
-
-    #test when category.save return false
-
-    #test when update category failed
-
-
 end
