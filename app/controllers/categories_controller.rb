@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+    before_action :authenticate_user!
+    
     def index
         @categories = Category.all
         # @tasks_today = Task.where(deadline: Date.current.beginning_of_day..Date.current.end_of_day)
