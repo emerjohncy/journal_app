@@ -52,4 +52,7 @@ Rails.application.routes.draw do
   get '/today' => 'tasks#today'
 
   get '/overdue' => 'tasks#overdue'
+
+  # ERRORS
+  get '*path' => redirect('/')
 end
