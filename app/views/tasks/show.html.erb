@@ -9,13 +9,20 @@
 
     <div class="main-content">
         <div class="task-column fs-1">Description: </div>
-        <div class="task-content fs-2">
-            <%= @task.description %>
+        <div class="ps-4">
+            <div class="task-content fs-2">
+                <%= @task.description %>
+            </div>
         </div>
 
         <div class="task-column fs-1 pt-3">Deadline: </div>
-        <div class="task-content fs-2">
-            <%= @task.deadline %></h3>
+        <div class="d-flex flex-row justify-content-between ps-4">    
+            <div class="task-content fs-2 w-75 me-2">
+                <%= @task.deadline.strftime('%B %d, %Y') %>
+            </div>
+            <div class="task-content fs-2 w-25">
+                <%= @task.deadline.strftime('%I:%M %p') %>
+            </div>
         </div>
     </div>
 </div>

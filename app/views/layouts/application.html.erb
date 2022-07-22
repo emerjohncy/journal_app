@@ -11,20 +11,20 @@
   </head>
 
   <body>
-    <div class="container-fluid">
-        <% if user_signed_in? %>
-        <div class="row">
-          <div class="col-2 vh-100 sidebar">
-              <%= render "layouts/sidebar" %>
-          </div>
+      <% if user_signed_in? %>
+        <div class="container-fluid">
+          <div class="row vh-100">
+            <div class="col-2 sidebar d-flex flex-column justify-content-between">
+                <%= render "layouts/sidebar" %>
+            </div>
 
-          <div class="col vh-100 div-content">
-            <%= yield %>
+            <div class="col div-content">
+              <%= yield %>
+            </div>
           </div>
         </div>
       <% else %>
         <%= yield%>
       <% end %>
-    </div>
   </body>
 </html>

@@ -1,6 +1,7 @@
 <%= link_to category_task_path(category.id, task.id), class: "task-link fs-4" do %>
-<div class="div-task">
-        <%= task.name %>
+    <div class="div-task d-flex flex-row justify-content-between">
+        <div><%= task.name %></div>
+        <div><%= task.deadline.strftime('%B %d, %Y') %></div>
     </div>
 <% end %>
 

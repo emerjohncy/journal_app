@@ -1,7 +1,18 @@
+<div class="d-flex flex-row justify-content-between"> 
+    <%= link_to category_path(category.id), class: "cat-link div-category fs-4 h-100 w-75 me-2" do %>
+        <div class="cat-link fs-2 w-100 h-100 me-2 text-center">
+            <%= category.name %>
+        </div>
+    <% end %>
 
-<%= link_to category_path(category.id), class: "cat-link fs-4" do %>
-    <div class="div-category">
-        <%= category.name %>
-    </div>
-<% end %>
-
+    <%= link_to category_tasks_path(category.id), class: "cat-link div-category fs-4 h-100 w-25" do %>
+        <div class="cat-link fs-2 w-100 h-100 text-center">
+            <%= category.tasks.count %>
+            <% if category.tasks.count <= 1 %>
+                task
+            <% else %>
+                tasks
+            <% end %>
+        </div>
+    <% end %>
+</div>

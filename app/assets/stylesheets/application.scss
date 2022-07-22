@@ -5,7 +5,7 @@
 }
 
 .div-content {
-    background: linear-gradient(to bottom right, #06113c 0%, #000000 123%);
+    background-color: #06113c;
     width: 85%;
 }
 
@@ -20,18 +20,18 @@
     padding-bottom: 30px;
 }
 
-.nav-link {
+.nav-link,
+.btn-signout {
     text-decoration: none;
     color: #eeeeee;
     padding-left: 5px !important;
 }
 
-.nav-link:hover {
-    color: #06113C;
-}
-
+.nav-link:hover,
 .active {
     color: #06113C;
+    background-color: #ffa866;
+    border-radius: 10px;
 }
 
 .title {
@@ -45,7 +45,8 @@
 .div-task {
     background-color: #fff;
     padding: 13px 15px 13px 15px;
-    margin: 13px 0px 13px 0px;
+    // margin: 13px 0px 13px 0px;
+    margin-bottom: 13px;
     border-radius: 10px;
 }
 
@@ -150,4 +151,46 @@
 
 .error {
     color: $form-feedback-invalid-color
+}
+
+.user {
+    background-color: #06113c;
+    margin: 0;
+    padding: 0 !important;
+}
+
+.form-user {
+    background-color: #FF8C32;
+    border-radius: 25px;
+    width: 30%;
+}
+
+.user-logo {
+    width: 50px;
+}
+
+.user-error {
+    color: #cc0000;
+}
+
+.user-button {
+    border-radius: 5px;
+    border: 1px solid #eeeeee;
+    // padding: 5px 10px 5px 10px;
+    background-color: #FF8C32;
+    width: 100%;
+}
+
+.user-button:hover {
+    background: #eeeeee;
+}
+
+.btn-signout {
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+}
+
+.btn-signout:hover {
+    background: #eeeeee;
+    color: #06113C;
 }
