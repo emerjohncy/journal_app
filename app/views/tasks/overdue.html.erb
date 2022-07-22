@@ -1,13 +1,13 @@
 <div class="container-fluid vh-100 div-content">
 
     <div class="title">
-        <div>Today</div>
+        <div>Overdue</div>
         <% if @count > 1 %>
-            <div class="fs-4 today-description">You have <%= @count %> tasks due today!</div>
+            <div class="fs-4 today-description"><%= @count %> tasks have already past the deadline!</div>
         <% elsif @count == 1 %>
-            <div class="fs-4 today-description">You have <%= @count %> task due today!</div>
+            <div class="fs-4 today-description"><%= @count %> task has already past the deadline!</div>
         <% elsif @count == 0 %>
-            <div class="fs-4 today-description">You have no tasks due today! Keep up the good work!</div>
+            <div class="fs-4 today-description">You have no overdue tasks! Good job!</div>
         <% end %>
     </div>
 
@@ -16,4 +16,5 @@
             <%= render "task_today", task: task %>
         <% end %>
     </div>
+
 </div>

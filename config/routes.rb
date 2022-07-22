@@ -50,4 +50,6 @@ Rails.application.routes.draw do
   delete '/categories/:category_id/tasks/:id' => 'tasks#destroy'
 
   get '/today' => 'tasks#today'
+
+  get '/overdue' => 'tasks#overdue'
 end

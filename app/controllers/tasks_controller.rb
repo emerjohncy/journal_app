@@ -48,6 +48,12 @@ class TasksController < ApplicationController
         @tasks = Task.where(category_id: @user.categories, deadline: Date.current.beginning_of_day..Date.current.end_of_day)
         @count = @tasks.count
     end
+    
+    def overdue
+        @user = User.find(current_user.id)
+        @tasks = Task.where("category_id", @user.categories, "deadline <?", DateTime.now.getlocal)
+        @count = @tasks.count
+    end
 
     private
 

@@ -16,7 +16,11 @@
             <%= link_to "Today", today_path, class: "nav-link fw-bold fs-3 px-3 py-2" %>
         <% end %>
 
-        <%= link_to "Overdue", root_path, class: "nav-link fw-bold fs-3 px-3 py-2" %>
+        <% if current_page?(overdue_path) %>
+            <%= link_to "Overdue", overdue_path, class: "nav-link active fw-bold fs-3 px-3 py-2" %>
+        <% else %>
+            <%= link_to "Overdue", overdue_path, class: "nav-link fw-bold fs-3 px-3 py-2" %>
+        <% end %>
     <nav> 
 </div>
 
