@@ -1,0 +1,22 @@
+<div class="container-fluid vh-100 div-content">
+
+    <div class="title">
+        <div>Today</div>
+        <% if @count > 1 %>
+            <div class="fs-5 today-description">You have <%= @count %> tasks due today!</div>
+        <% elsif @count == 1 %>
+            <div class="fs-5 today-description">You have <%= @count %> task due today!</div>
+        <% elsif @count == 0 %>
+            <div class="fs-3 today-description">You have no tasks due today! Keep up the good work!</div>
+        <% end %>
+        
+
+    </div>
+
+    <div class="main-content">
+        <% @tasks.each do |task| %>
+            <%= render "task_today", task: task %>
+        <% end %>
+    </div>
+
+</div>

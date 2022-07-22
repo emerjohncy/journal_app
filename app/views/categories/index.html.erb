@@ -1,9 +1,9 @@
 <div class="container-fluid vh-100 div-content">
-
     <%# List of Categories Div %>
     <div class="title">
         Category (<%= @categories.count %>)
     </div>
+
     <div class="main-content">
         <% @categories.each do |category| %>
             <%= render "category", category: category %>

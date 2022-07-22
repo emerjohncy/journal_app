@@ -1,0 +1,6 @@
+<%= link_to category_task_path(task.category.id, task.id), class: "task-link fs-4" do %>
+    <div class="div-task d-flex flex-row justify-content-between w-100">
+        <div><b><%= task.name %></b></div>
+        <div><em>Category: </em><%= task.category.name %></div>
+    </div>
+<% end %>

@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   get '/users', to: redirect('/users/sign_up')
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 
   root "categories#index"
 
@@ -52,4 +48,6 @@ Rails.application.routes.draw do
   patch '/categories/:category_id/tasks/:id' => 'tasks#update'
 
   delete '/categories/:category_id/tasks/:id' => 'tasks#destroy'
+
+  get '/today' => 'tasks#today'
 end

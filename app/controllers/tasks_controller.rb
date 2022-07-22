@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-    before_action :get_category
+    before_action :get_category, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
     def index
         @tasks = @category.tasks
@@ -43,11 +43,17 @@ class TasksController < ApplicationController
         redirect_to category_tasks_path, status: :see_other
     end
 
+    def today
+        @user = User.find(current_user.id)
+        @tasks = Task.where(category_id: @user.categories, deadline: Date.current.beginning_of_day..Date.current.end_of_day)
+        @count = @tasks.count
+    end
+
     private
 
     def get_category
         @category = Category.find(params[:category_id])
-        @categories = Category.all
+        # @categories = Category.all
     end
 
     def task_params
