@@ -21,6 +21,16 @@
         <%# </div> %>
       <%# end %>
 
+      <%# if notice %>
+        <%# <p class="notice"> %>
+          <%#= notice %>
+        <%# </p> %>
+      <%# end %>
+
+      <% if alert %>
+        <p class="user-error fs-8"><%= alert %></p>
+      <% end %>
+
       <div class="actions w-100 d-flex justify-content-center">
         <%= f.submit "Log in", class: "user-button py-3" %>
       </div>
