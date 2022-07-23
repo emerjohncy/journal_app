@@ -2,16 +2,11 @@ class CategoriesController < ApplicationController
     before_action :get_user
     
     def index
-        # @tasks_today = Task.where(deadline: Date.current.beginning_of_day..Date.current.end_of_day)
-        # @categories = Category.all
         @categories = @user.categories.all
         @count = @categories.count
     end
     
     def new
-        # @tasks_today = Task.where(deadline: Date.current.beginning_of_day..Date.current.end_of_day)
-        # @categories = Category.all
-        @categories = @user.categories.all
         @category = @user.categories.build
     end
 
@@ -19,7 +14,7 @@ class CategoriesController < ApplicationController
         @category = @user.categories.build(category_params)
         
         if @category.save
-            redirect_to @category
+            redirect_to category_tasks_path(@category.id)
         else
             render :new, status: :unprocessable_entity
         end

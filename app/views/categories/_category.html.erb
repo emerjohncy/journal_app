@@ -1,13 +1,13 @@
-    <%= link_to category_tasks_path(category.id), class: "task-link fs-3" do %>
-        <div class="div-task d-flex flex-row justify-content-between">
-            <div><%= category.name %></div>
-            <div>
-                <%= category.tasks.count %>
-                <% if category.tasks.count <= 1 %>
-                    task
-                <% else %>
-                    tasks
-                <% end %>
-            </div>
+<%= link_to category_tasks_path(category.id), class: "task-link fs-3" do %>
+    <div class="div-task d-flex flex-row justify-content-between">
+        <div><%= category.name %></div>
+        <div>
+            <%= category.tasks.count %>
+            <% if category.tasks.count <= 1 %>
+                task
+            <% else %>
+                tasks
+            <% end %>
         </div>
-    <% end %>
+    </div>
+<% end %>

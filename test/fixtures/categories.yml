@@ -3,7 +3,9 @@
 test_one:
   id: 1
   name: "Business"
+  user_id: 1
 
 test_two:
   id: 2
   name: "Pop"
+  user_id: 1

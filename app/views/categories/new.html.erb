@@ -2,10 +2,10 @@
 
     <%# List of Categories Div %>
     <div class="title">
-        Category (<%= @categories.count %>)
+        Category (<%= @user.categories.all.count %>)
     </div>
     <div class="main-content col">
-        <% @categories.each do |category| %>
+        <% @user.categories.all.each do |category| %>
             <%= render "category", category: category %>
         <% end %>
     </div>
