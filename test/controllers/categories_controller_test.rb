@@ -3,62 +3,66 @@ require "test_helper"
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
     include Devise::Test::IntegrationHelpers
 
-    # test "should get index" do
-    #     get categories_path
+    setup do
+        sign_in(users(:user_one))
+    end
 
-    #     assert_response :success
-    # end
+    test "should get index" do
+        get categories_path
 
-    # test "should get new" do
-    #     get new_category_path
+        assert_response :success
+    end
 
-    #     assert_response :success
-    # end
+    test "should get new" do
+        get new_category_path
+
+        assert_response :success
+    end
     
-    # test "should post create" do
-    #     post create_category_path, params: { category: { name: "Personal" } }
+    test "should post create" do
+        post create_category_path, params: { category: { name: "Personal" } }
 
-    #     assert_response :redirect
-    # end
+        assert_response :redirect
+    end
 
-    # test "when create category failed" do
-    #     post create_category_path, params: { category: { name: nil } }
+    test "when create category failed" do
+        post create_category_path, params: { category: { name: "" } }
 
-    #     assert_response :unprocessable_entity
-    # end
+        assert_response :unprocessable_entity
+    end
 
-    # test "should get show" do
-    #     @category = categories(:test_one)    # Use category fixtures here
-    #     get category_path(@category.id)
+    test "should get show" do
+        @category = categories(:test_one)    # Use category fixtures here
+        get category_path(@category.id)
 
-    #     assert_response :success
-    # end
+        assert_response :success
+    end
 
-    # test "should get edit" do
-    #     @category = categories(:test_one)    # Use category fixtures here
-    #     get edit_category_path(@category.id)
+    test "should get edit" do
+        @category = categories(:test_one)    # Use category fixtures here
+        get edit_category_path(@category.id)
 
-    #     assert_response :success
-    # end
+        assert_response :success
+    end
     
-    # test "should patch update" do
-    #     @category = categories(:test_one)    # Use category fixtures here
-    #     patch category_path(@category.id), params: { category: { name: "Avion Editted" } }
+    test "should patch update" do
+        @category = categories(:test_one)    # Use category fixtures here
+        patch category_path(@category.id), params: { category: { name: "Avion Editted" } }
 
-    #     assert_response :redirect
-    # end
+        assert_response :redirect
+    end
 
-    # test "when update category failed" do
-    #     @category = categories(:test_two)    # Use category fixtures here
-    #     patch category_path(@category.id), params: { category: { name: "Business" } }
+    test "when update category failed" do
+        @category = categories(:test_two)    # Use category fixtures here
+        patch category_path(@category.id), params: { category: { name: ""} }
         
-    #     assert_response :unprocessable_entity
-    # end
+        assert_response :unprocessable_entity
+    end
 
-    # test "should delete destroy" do
-    #     @category = categories(:test_one)    # Use category fixtures here
-    #     delete category_path(@category.id)
+    test "should delete destroy" do
+        @category = categories(:test_one)    # Use category fixtures here
+        delete category_path(@category.id)
 
-    #     assert_response :redirect
-    # end
+        assert_response :redirect
+    end
 end

@@ -11,3 +11,9 @@ test_two:
   description: MyText
   deadline: 2022-07-08 19:28:00
   category_id: 2
+
+test_today:
+  name: My Task Today
+  description: This is my task due today
+  deadline: DateTime.now
+  category_id: 1
