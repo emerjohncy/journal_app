@@ -20,10 +20,6 @@ class CategoriesController < ApplicationController
             render :new, status: :unprocessable_entity
         end
     end
-    
-    def show
-    
-    end
 
     def edit
     
@@ -31,7 +27,7 @@ class CategoriesController < ApplicationController
     
     def update
         if @category.update(category_params)
-            redirect_to category_path(@category.id)
+            redirect_to category_tasks_path(@category.id)
         else
             render :edit, status: :unprocessable_entity
         end

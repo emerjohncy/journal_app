@@ -4,7 +4,7 @@
             <%= @category.name %> (<%= @category.tasks.count %>)
             <div class="d-flex align-item-center">
                 <%= link_to 'Edit', edit_category_path(@category.id), class: "btn btn-outline-success" %>
-                <%= link_to 'Delete', category_path(@category), class: "btn btn-outline-danger", data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" } %>
+                <%= link_to 'Delete', delete_category_path(@category), class: "btn btn-outline-danger", data: { "turbo-method": :delete, turbo_confirm: "Are you sure?" } %>
             </div>
         </div>
     <% end %>
