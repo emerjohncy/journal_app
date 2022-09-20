@@ -9,5 +9,10 @@ user_one:
   email: myemail@email.com
   encrypted_password: password
 
+user_two:
+  id: 2
+  email: myemailtwo@email.com
+  encrypted_password: password
+
 two: {}
 # column: value

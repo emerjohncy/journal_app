@@ -62,7 +62,14 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     test "should delete destroy" do
         @category = categories(:test_one)    # Use category fixtures here
         delete delete_category_path(@category.id)
-
+        
+        assert_response :redirect
+    end
+    
+    test "should redirect to root path when user is not the owner of the category" do
+        @category = categories(:test_three)    # Use category fixtures here
+        get edit_category_path(@category.id)
+        
         assert_response :redirect
     end
 end

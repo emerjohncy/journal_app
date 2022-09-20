@@ -9,3 +9,8 @@ test_two:
   id: 2
   name: "Pop"
   user_id: 1
+
+test_three:
+  id: 3
+  name: "Work"
+  user_id: 2
