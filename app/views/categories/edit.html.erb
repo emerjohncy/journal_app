@@ -1,7 +1,7 @@
 <div class="container-fluid vh-100 div-content">
     <div class="title show-cat d-flex flex-row">
-        <%= render "form", category: @category, method: "Edit", class: "col" %>
-        <%= link_to 'Cancel', category_path(@category.id), class: "btn btn-outline-secondary col py-3" %>
+        <%= render "form", category: @category, url: update_category_path(@category.id), method: "Edit", class: "col" %>
+        <%= link_to 'Cancel', category_tasks_path(@category.id), class: "btn btn-outline-secondary col py-3" %>
     </div>
 
     <% @category.errors.full_messages_for(:name).each do |message| %>

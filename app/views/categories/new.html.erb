@@ -2,17 +2,17 @@
 
     <%# List of Categories Div %>
     <div class="title">
-        Category (<%= @user.categories.all.count %>)
+        Category (<%= current_user.categories.all.count %>)
     </div>
     <div class="main-content col">
-        <% @user.categories.all.each do |category| %>
+        <% current_user.categories.all.each do |category| %>
             <%= render "category", category: category %>
         <% end %>
     </div>
 
     <%# Add a Category Div %>
     <div class="col">
-        <%= render "form", category: @category, method: "Add" %>
+        <%= render "form", category: @category, url: create_category_path, method: "Add" %>
     </div>
 
     <% @category.errors.full_messages_for(:name).each do |message| %>

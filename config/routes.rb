@@ -11,9 +11,6 @@ Rails.application.routes.draw do
   get '/categories/new' => 'categories#new',
     as: 'new_category'
 
-  get '/categories/:id' => 'categories#show',
-    as: 'category'
-
   post '/categories' => 'categories#create',
     as: 'create_category'
 
@@ -22,9 +19,11 @@ Rails.application.routes.draw do
 
   put '/categories/:id' => 'categories#update'
 
-  patch '/categories/:id' => 'categories#update'
+  patch '/categories/:id' => 'categories#update',
+    as: 'update_category'
     
-  delete '/categories/:id' => 'categories#destroy'
+  delete '/categories/:id' => 'categories#destroy',
+    as: 'delete_category'
 
 
   # Tasks Routes
