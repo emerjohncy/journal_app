@@ -31,12 +31,12 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
         assert_response :unprocessable_entity
     end
 
-    test "should get show" do
-        @category = categories(:test_one)    # Use category fixtures here
-        get category_path(@category.id)
+    # test "should get show" do
+    #     @category = categories(:test_one)    # Use category fixtures here
+    #     get category_path(@category.id)
 
-        assert_response :success
-    end
+    #     assert_response :success
+    # end
 
     test "should get edit" do
         @category = categories(:test_one)    # Use category fixtures here
@@ -47,21 +47,21 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     
     test "should patch update" do
         @category = categories(:test_one)    # Use category fixtures here
-        patch category_path(@category.id), params: { category: { name: "Avion Editted" } }
+        patch update_category_path(@category.id), params: { category: { name: "Avion Editted" } }
 
         assert_response :redirect
     end
 
     test "when update category failed" do
         @category = categories(:test_two)    # Use category fixtures here
-        patch category_path(@category.id), params: { category: { name: ""} }
+        patch update_category_path(@category.id), params: { category: { name: ""} }
         
         assert_response :unprocessable_entity
     end
 
     test "should delete destroy" do
         @category = categories(:test_one)    # Use category fixtures here
-        delete category_path(@category.id)
+        delete delete_category_path(@category.id)
 
         assert_response :redirect
     end
