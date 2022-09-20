@@ -50,8 +50,7 @@ class TasksController < ApplicationController
     end
     
     def overdue
-        @user = User.find(current_user.id)
-        @tasks = @user.tasks.where(deadline: Date.parse("01/01/2000")...Date.current.beginning_of_day)
+        @tasks = current_user.tasks.where("deadline < ?", Time.now)
         @count = @tasks.count
     end
 
