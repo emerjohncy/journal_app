@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
     before_action :get_category, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    before_action :restrict_access, except: [:today, :overdue]
 
     def index
         @tasks = @category.tasks
@@ -44,14 +45,12 @@ class TasksController < ApplicationController
     end
 
     def today
-        @user = User.find(current_user.id)
-        @tasks = @user.tasks.where(deadline: Date.current.beginning_of_day..Date.current.end_of_day)
+        @tasks = current_user.tasks.where(deadline: Date.current.beginning_of_day..Date.current.end_of_day)
         @count = @tasks.count
     end
     
     def overdue
-        @user = User.find(current_user.id)
-        @tasks = @user.tasks.where(deadline: Date.parse("01/01/2000")...Date.current.beginning_of_day)
+        @tasks = current_user.tasks.where("deadline < ?", Time.now)
         @count = @tasks.count
     end
 
@@ -59,6 +58,12 @@ class TasksController < ApplicationController
 
     def get_category
         @category = Category.find(params[:category_id])
+    end
+
+    def restrict_access
+        if current_user != @category.user
+            redirect_to root_path
+        end
     end
 
     def task_params

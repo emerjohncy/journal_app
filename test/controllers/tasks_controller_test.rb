@@ -86,4 +86,12 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
 
         assert_response :success
     end
+
+    test "should redirect to root path when user is not the owner of tasks" do
+        @category = categories(:test_three)     # Use category fixtures here
+        @task = tasks(:test_three)              # Use task fixtures here
+        get edit_category_task_path(@category.id, @task.id)
+        
+        assert_response :redirect
+    end
 end
