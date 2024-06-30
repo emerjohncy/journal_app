@@ -53,5 +53,5 @@ Rails.application.routes.draw do
   get '/overdue' => 'tasks#overdue'
 
   # ERRORS
-  # get '*path' => redirect('/')
+  get '*path' => redirect('/')
 end
