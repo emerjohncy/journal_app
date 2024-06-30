@@ -22,4 +22,4 @@ test:
 
 production:
   <<: *default
-  database: journal_app_production
+  database: journal_app_production_rzhc
