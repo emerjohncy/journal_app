@@ -9,7 +9,7 @@
 
 # Getting Started
 
-If you do not want to make an account, you can use this credentials instead and feel free to try the application [here](https://thawing-chamber-19478.herokuapp.com/users/sign_in).
+If you do not want to make an account, you can use this credentials instead and feel free to try the application [here](https://journalapp.emerniones.com/).
 ```
 Email: test@example.com
 Password: password
